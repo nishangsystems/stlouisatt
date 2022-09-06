@@ -1,0 +1,66 @@
+[14-Jan-2022 03:07:13 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php on line 6
+[14-Jan-2022 03:07:13 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php on line 18
+[14-Jan-2022 04:07:13 Africa/Douala] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php:43
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/index.php(1): include()
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php on line 43
+[14-Jan-2022 03:09:27 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php on line 17
+[14-Jan-2022 03:10:55 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php on line 17
+[14-Jan-2022 03:11:07 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/includes/functions.php on line 17
+[14-Jan-2022 03:41:09 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[14-Jan-2022 03:41:09 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[14-Jan-2022 03:41:09 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[14-Jan-2022 03:41:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
+[16-Jan-2022 21:16:21 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[16-Jan-2022 21:16:21 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[16-Jan-2022 21:16:21 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[16-Jan-2022 21:16:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
+[17-Jan-2022 20:25:20 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[17-Jan-2022 20:25:20 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[17-Jan-2022 20:25:20 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[17-Jan-2022 20:25:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
+[17-Jan-2022 20:38:13 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[17-Jan-2022 20:38:13 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[17-Jan-2022 20:38:13 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[17-Jan-2022 20:38:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
+[17-Jan-2022 20:43:30 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[17-Jan-2022 20:43:30 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[17-Jan-2022 20:43:30 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[17-Jan-2022 20:43:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
+[12-Mar-2022 06:08:58 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[12-Mar-2022 06:08:58 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[12-Mar-2022 06:08:58 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[12-Mar-2022 06:08:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
+[14-Mar-2022 20:21:49 UTC] PHP Warning:  include(includes/dbc.php): failed to open stream: No such file or directory in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[14-Mar-2022 20:21:49 UTC] PHP Warning:  include(): Failed opening 'includes/dbc.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 3
+[14-Mar-2022 20:21:49 UTC] PHP Notice:  Undefined index: user_name in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 5
+[14-Mar-2022 20:21:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php:21
+Stack trace:
+#0 /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php(17): backup_tables('localhost', 'nishang', 'google1234', 'super_db')
+#1 {main}
+  thrown in /home/u182156984/domains/nishangsys.com/public_html/graciousatt/logout.php on line 21
