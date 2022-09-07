@@ -1,7 +1,6 @@
 <?php
 if(isset($_POST['save'])){
- $level=$_POST['level'];
-$campus=$_POST['campus'];
+ $level=$_POST['level']; 
 $seqtype=$_POST['country'];
 $sem=$_POST['state'];
 
@@ -15,12 +14,7 @@ while($rows=$select->fetch_assoc()){
     
 }
 
-$select =$con->query("SELECT * FROM   campus where id='".$campus."' ") or die(mysqli_error($con));
 
-while($rows=$select->fetch_assoc()){
- $camp_name=$rows['camp_name'];   
-    
-}
 
 $select =$con->query("SELECT * FROM   settings_subtype where id='".$seqtype."' ") or die(mysqli_error($con));
 
@@ -38,12 +32,12 @@ while($rows=$select->fetch_assoc()){
 }
    
 ?>
-<a href="?saving_subj&sem=<?php echo $sem; ?>&sem_type=<?php echo $seqtype; ?>&prog_id=<?php echo $prog_id;  ?>&level_id=<?php echo $level; ?>&camp_id=<?php echo $campus; ?>&gdgddh">
+<a href="?saving_subj&sem=<?php echo $sem; ?>&sem_type=<?php echo $seqtype; ?>&prog_id=<?php echo $prog_id;  ?>&level_id=<?php echo $level; ?>&gdgddh">
 <div class="row" style="font-size:18px; font-weight:bold">
         <div class="col-sm-11">
           <div class="well">
  
-Setting up <?php echo $prog_name;  ?> <?php echo $sem_name;  ?> Subjects for <?php echo $level_name;  ?> Programs in <?php echo $camp_name;  ?> Campus 
+Setting up <?php echo $prog_name;  ?> <?php echo $sem_name;  ?> Subjects for <?php echo $level_name;  ?>  
           </div>
         </div>
 </div>

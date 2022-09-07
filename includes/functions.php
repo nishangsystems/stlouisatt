@@ -484,7 +484,7 @@
 				}
 				else {
 				$query =$con->query("INSERT INTO campus_programs  set prog_id='$prog_id',campus_id='$camp_id' ") or die(mysqli_error($con));
-				echo '<meta http-equiv="Refresh" content="0; url=?camp_prog&id='.$camp_id.'">';
+				echo '<meta http-equiv="Refresh" content="0; url=?create_camp_prog&id='.$camp_id.'">';
 				}
 				}
 		}

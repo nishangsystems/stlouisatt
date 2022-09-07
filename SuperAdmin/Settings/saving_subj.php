@@ -4,7 +4,6 @@ DeleteCourse();
 UpdateThisCourse();
 if(isset($_GET['saving_subj'])){
  $level=$_GET['level_id'];
-$campus=$_GET['camp_id'];
 $seqtype=$_GET['sem_type'];
 $sem=$_GET['sem'];
 $prog_id=$_GET['prog_id'];
@@ -15,13 +14,6 @@ $select =$con->query("SELECT * FROM   levels where id='".$level."' ") or die(mys
 
 while($rows=$select->fetch_assoc()){
  $level_name=$rows['level_name'];   
-    
-}
-
-$select =$con->query("SELECT * FROM   campus where id='".$campus."' ") or die(mysqli_error($con));
-
-while($rows=$select->fetch_assoc()){
- $camp_name=$rows['camp_name'];   
     
 }
 
@@ -43,7 +35,7 @@ while($rows=$select->fetch_assoc()){
 ?>
 <h3>
  
- <?php echo $prog_name;  ?> <?php echo $sem_name;  ?> Subjects for <?php echo $level_name;  ?> Programs in <?php echo $camp_name;  ?> Campus    
+ <?php echo $prog_name;  ?> <?php echo $sem_name;  ?> Subjects for <?php echo $level_name;  ?>     
 </h3>
 
 
@@ -200,7 +192,7 @@ while($rows=$select->fetch_assoc()){
     <?php
  	$check=$con->query("SELECT * FROM  courses,prog_courses WHERE  prog_courses.prog_id='$prog_id'
      AND  prog_courses.sem_id='$sem' and prog_courses.level_id='$level' 
-     AND prog_courses.course_id=courses.id  ") 
+     AND prog_courses.course_id=courses.id ORDER BY prog_courses.id DESC ") 
 			or die(mysqli_error($con));
 			$i=1;
 			while($rows=$check->fetch_assoc()){

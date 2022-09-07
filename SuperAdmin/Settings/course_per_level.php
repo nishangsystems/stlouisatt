@@ -28,22 +28,7 @@
                                 </select>
                         </div>
 
-                        <div class="form-group col-md-2">
-                        <label for="inputPassword4"> Campus :
-                            </label>
-                            <select  name="campus" onBlur="doCalc(this.form)" required class="form-control">
-                                <option    onBlur="doCalc(this.form)"></option>
-                                <?php
-                                $select =$con->query("SELECT * FROM   campus") or die(mysqli_error($con));
-							
-                                while($rows=$select->fetch_assoc()){
-                                    ?>
-                                <option value="<?php echo $rows['id'] ?>"  onBlur="doCalc(this.form)"><?php echo $rows['camp_name'] ?></option>
-                                <?php } ?>
-                                   
-                                </select>
-                        </div>
-
+                       
 
                         <div class="form-group col-md-4">
                         <label for="inputPassword4"> Program :

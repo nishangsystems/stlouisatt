@@ -198,14 +198,15 @@ Assigning Course(s) to <?php echo $full_name;  ?>  in  <?php echo $camp_name;  ?
         <th>Lecture<br>Hours</th>
         <th>Tutorils<br>Hours</th>
         <th>Practical<br>Hours</th>
+        <th>Campus</th>
         
       </tr>
     </thead>
     <tbody>
     <?php
- 	$check=$con->query("SELECT * FROM  courses,programs,levels,prog_courses,teacher_courses 
-     WHERE teacher_courses.teacher_id='$user_id' AND teacher_courses.year_id='$year_id'
-     AND teacher_courses.campus_id='$campus_id' AND teacher_courses.course_id=prog_courses.id
+ 	$check=$con->query("SELECT * FROM  courses,programs,campus,levels,prog_courses,teacher_courses 
+     WHERE teacher_courses.teacher_id='$user_id' AND campus.id=teacher_courses.campus_id AND teacher_courses.year_id='$year_id'
+     AND teacher_courses.course_id=prog_courses.id
      AND prog_courses.level_id=levels.id AND prog_courses.prog_id=programs.id AND 
      prog_courses.course_id=courses.id  ") 
 			or die(mysqli_error($con));
@@ -254,6 +255,7 @@ Assigning Course(s) to <?php echo $full_name;  ?>  in  <?php echo $camp_name;  ?
           echo $rows['practicals']; 
            }?></span> in   
           <?php echo $rows['practical']; ?></td>
+          <td style="color:#00f; font-weight:bold"><?php echo $rows['camp_name']; ?></td>
           <td>
        
         <a class="btn btn-danger btn-xs" onclick="return confirm('Are you Sure you wish to Delete')" href="?assign_to&userid=<?php echo $user_id; ?>&del=<?php echo $rows['id']; ?>&year=<?php echo $year_id;  ?>&camp_id=<?php echo $campus_id; ?>&gdgddh">
