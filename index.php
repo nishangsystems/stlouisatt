@@ -16,6 +16,16 @@ $msg="";
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
+		<style>
+			body {
+ background-image: url("bg.jpg") ;
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+	</style>
+
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
@@ -73,7 +83,7 @@ $msg="";
 								<h1>
 									<i class="ace-icon fa fa-book green"></i>
 									
-									<span class="white" id="id-text2"> ATTENDANCE PORTAL</span>
+									<span class="blue" id="id-text2"  > ATTENDANCE PORTAL</span>
 								</h1>
 								<h4 class="blue" id="id-company-text">&copy; POWERED BY NISHANG SYSTEMS PLC</h4>
 							</div>
