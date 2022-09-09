@@ -210,14 +210,14 @@ while($rows=$select->fetch_assoc()){
           <td>
        
         <a class="btn btn-danger btn-xs" href="?saving_subj&del=<?php echo $rows['id']; ?>&sem=<?php echo $_GET['sem'] ;?>&sem_type=<?php echo $_GET['sem_type']; ?>
-        &prog_id=<?php echo $_GET['prog_id']; ?>&level_id=<?php echo $_GET['level_id']; ?>&camp_id=<?php echo $_GET['camp_id']; ?>&gdgddh">
+        &prog_id=<?php echo $_GET['prog_id']; ?>&level_id=<?php echo $_GET['level_id']; ?>&gdgddh">
         Delete</a>
 
         
          </td>
          <td>
          <a class="btn btn-primary btn-xs" href="?saving_subj&edit=<?php echo $rows['id']; ?>&sem=<?php echo $_GET['sem'] ;?>&sem_type=<?php echo $_GET['sem_type']; ?>
-        &prog_id=<?php echo $_GET['prog_id']; ?>&level_id=<?php echo $_GET['level_id']; ?>&camp_id=<?php echo $_GET['camp_id']; ?>&gdgddh">
+        &prog_id=<?php echo $_GET['prog_id']; ?>&level_id=<?php echo $_GET['level_id']; ?>&gdgddh">
         Edit</a>
             </td>
       </tr>

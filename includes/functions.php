@@ -2,8 +2,7 @@
    
 
    $con = mysqli_connect('localhost','nishang','google1234','stlouis_att');
-   // $con = mysqli_connect('localhost','u182156984_graciousatt','Cpadmin@123','u182156984_graciousatt');        
-    // Check connection
+   //    $con = mysqli_connect('localhost','u174391244_attendance','Cpadmin@123','u174391244_attendance');
     if (mysqli_connect_errno())
     {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -13,8 +12,8 @@
 		$conns = mysqli_connect ("localhost", "u182156984_graciousys", "Letgracious1n!", "u182156984_graciousys");
 		}
 
-	 //$con = mysqli_connect('localhost','nishang','google1234','app_sys');
-	// $dbcon = mysqli_connect("localhost", "u182156984_graciousys", "Letgracious1n!", "u182156984_graciousys"); 
+
+	// $dbcon =  mysqli_connect('localhost','u174391244_attendance','Cpadmin@123','u174391244_attendance'); 
 	$dbcon = mysqli_connect('localhost','nishang','google1234','stlouis_att');    //// online sys    
        
 	 // Check connection
@@ -29,6 +28,7 @@
 	  static $conn;
     if ($conn===NULL){ 
         $conn = mysqli_connect ('localhost','nishang','google1234','stlouis_att');
+		//$conn = mysqli_connect ('localhost','u174391244_attendance','Cpadmin@123','u174391244_attendance');
     }
     return $conn;
     }
@@ -36,7 +36,8 @@
     function unicon(){
 		static $conn;
 	  if ($conn===NULL){ 
-		  $conn = mysqli_connect ('localhost','nishang','google1234','stlouis_att');   ;
+		  $conn = mysqli_connect ('localhost','nishang','google1234','stlouis_att');
+		//  $conn = mysqli_connect ('localhost','u174391244_attendance','Cpadmin@123','u174391244_attendance');   ;
 	  }
 	  return $conn;
 	  }

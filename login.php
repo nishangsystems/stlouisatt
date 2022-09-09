@@ -73,7 +73,7 @@ $msg="";
 								<h1>
 									<i class="ace-icon fa fa-book green"></i>
 									
-									<span class="white" id="id-text2"> APPLICATION PORTAL</span>
+									<span class="white" id="id-text2"> ATTENDANCE PORTAL</span>
 								</h1>
 								<h4 class="blue" id="id-company-text">&copy; POWERED BY NISHANG SYSTEMS PLC</h4>
 							</div>
