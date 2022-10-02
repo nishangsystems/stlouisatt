@@ -110,6 +110,17 @@
 
 						<ul class="submenu">
 
+						
+							
+						<li class="">
+								<a href="?all_courses">
+									<i class="menu-icon fa fa-caret-right"></i>
+									All Courses
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
 							
 						<li class="">
 								<a href="?course_type">

@@ -22,6 +22,30 @@
 	 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	 }
 	 
+	 /*
+	 
+   //$con = mysqli_connect('localhost','nishang','google1234','stlouis_att');
+      $con = mysqli_connect('localhost','u174391244_attendance','Cpadmin@123','u174391244_attendance');
+    if (mysqli_connect_errno())
+    {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+
+	function db () {
+		$conns = mysqli_connect ("localhost", "u182156984_graciousys", "Letgracious1n!", "u182156984_graciousys");
+		}
+
+
+     $dbcon =  mysqli_connect('localhost','u174391244_attendance','Cpadmin@123','u174391244_attendance'); 
+	//$dbcon = mysqli_connect('localhost','nishang','google1234','stlouis_att');    //// online sys    
+       
+	 // Check connection
+	 if (mysqli_connect_errno())
+	 {
+	 echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	 }
+	 
+    */
     
 		  
     function dbcon(){
@@ -634,6 +658,31 @@
 				}
 					}
 
+
+
+					function CourseUpdate(){
+
+						$con= dbcon();
+							if(isset($_POST['save'])){
+							
+								$course_id=$_POST['course'];
+								$lecture=$_POST['lecture'];
+								$tutorials=$_POST['tutorials'];
+								$practicals=$_POST['practicals'];
+						
+										
+							$select =$con->query("UPDATE courses SET  practical='$practicals',
+							lecture='$lecture',tutorials='$tutorials' WHERE id='".$course_id."'
+							 ") or die(mysqli_error($con));				
+								echo "<script>alert('UPDATE SUCCESSFUL')</script>";
+								echo '<meta http-equiv="Refresh" content="0; url=?update_course&id='.$course_id.'&gdgddh">';
+							
+							
+							
+						}
+							}
+		
+		
 
 	
 	    function SaveProgUp(){

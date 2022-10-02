@@ -156,7 +156,12 @@
 									if(isset($_GET['allocate_course'])){
 										include '../SuperAdmin/Courses/index.php';
 									}
-
+									if(isset($_GET['all_courses'])){
+										include '../SuperAdmin/Courses/all_courses.php';
+									}
+									if(isset($_GET['update_course'])){
+										include '../SuperAdmin/Courses/update_course.php';
+									}
 									if(isset($_GET['assign_course'])){
 										include '../SuperAdmin/Courses/assign_course.php';
 									}
@@ -233,6 +238,7 @@
 									if(isset($_GET['pmt_mode'])){
 										include '../SuperAdmin/Settings/course_type.php';
 									}
+									
 									if(isset($_GET['camp_pmt_mode'])){
 										include '../SuperAdmin/Settings/camp_pmt_mode.php';
 									}
