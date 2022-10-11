@@ -437,15 +437,7 @@
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li class="">
-								<a href="?create_users&link=Create Users Accounts">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Create Users
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
+							
 							<li class="">
 								<a href="?add_teacher&link=Create Users Accounts">
 									<i class="menu-icon fa fa-caret-right"></i>
