@@ -1,4 +1,4 @@
-<?php
+H<?php
 if(isset($_POST['save'])){
  $course_id=$_POST['course'];
  $date=$_POST['date'];

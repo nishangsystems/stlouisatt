@@ -5,10 +5,8 @@
  <h2>Your attendance History <?php 
 
 $course_id=$_GET['course'];
- $check_exits=$con->query("
- 
- SELECT * FROM  teacher_att 
-WHERE   teacher_att.teacher_id='$user_id'  AND teacher_att.year_id='$year_id' AND teacher_att.course_id='$course_id'
+ $check_exits=$con->query(" SELECT * FROM  campus,teacher_att 
+WHERE   teacher_att.teacher_id='$user_id' AND campus.id=teacher_att.campus_id  AND teacher_att.year_id='$year_id' AND teacher_att.course_id='$course_id'
 AND departure IS NOT NULL
 
  ORDER BY teacher_att.id DESC") 
@@ -27,7 +25,7 @@ AND departure IS NOT NULL
         <th>Departure</th>
        
         <th># of Hours</th>
-        
+        <th>Campus</th>
         
       </tr>
     </thead>
@@ -82,6 +80,7 @@ AND departure IS NOT NULL
          echo  $interval->format("%h") ;
          
          ?></td>
+         <td><?php echo $rows['camp_name']; ?></td>
       </tr>
       <?php }  ?>
       

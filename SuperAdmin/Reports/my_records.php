@@ -43,7 +43,7 @@
         </div>
 
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
         <label for="inputPassword4"> Academic Year :
             </label>
             <select  name="ayear" onBlur="doCalc(this.form)" required class="form-control">
@@ -59,6 +59,26 @@
                     
                 </select>
         </div>
+
+
+        <div class="form-group col-md-3">
+        <label for="inputPassword4"> Campus:
+            </label>
+            <select  name="campus" onBlur="doCalc(this.form)" required class="form-control">
+                <option></option>
+            <?php
+            $abs=$con->query("SELECT  * from campus
+            ") or die(mysqli_error($con));
+            while($row= $abs->fetch_assoc()){ 
+            ?>
+            
+            <option value="<?php echo $row['id'] ?>"  onBlur="doCalc(this.form)"><?php echo $row['camp_name'] ?></option>
+        <?php } ?>    
+                    
+                </select>
+        </div>
+
+
 
 
                                                 

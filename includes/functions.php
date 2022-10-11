@@ -141,7 +141,7 @@
 	
 	
 	
-	function CreateUsers($year){
+	function CreateUsers(){
 		
 			$con= dbcon();
 			if(isset($_POST['btn-signup'])) {
@@ -151,11 +151,11 @@
 				
 				$email = strip_tags($_POST['email']);
 				$upass = strip_tags($_POST['password']);
-			    $upass2 = strip_tags($_POST['password1']);
+			    $upass2 = strip_tags($_POST['password2']);
 				$uname = $con->real_escape_string($uname);
 				$email = $con->real_escape_string($email);
 				$upass = $con->real_escape_string($upass);
-				$tel=strip_tags($_POST['tel']);
+				
 				$tel = $con->real_escape_string($tel);
 				$ip=$_SERVER['REMOTE_ADDR'];	
 				$words = explode(" ", $uname);
@@ -165,10 +165,9 @@
 				$third_word = strtolower($words[2]);
 				$name=gethostname();
 				$email=$lastname.$third_word."@gracious.org";
-				$user_level=1;
+				$user_level=$_POST['level'];
+				$campus_id=$_POST['campus'];
 				
-				$tel_exist = $con->query("SELECT * FROM  users WHERE tel='$tel'  AND year_id='$year_id' ") or die(mysqli_error($con));
-			
 			
 			    $email_exists= $con->query("SELECT * FROM  users WHERE user_email='$your_email' ") or die(mysqli_error($con));
 				
@@ -180,11 +179,7 @@
 								</div>";
 				}
 
-				elseif ($tel_exist->num_rows>0){
-					echo $msg = "<div class='alert alert-danger'>
-									<span class='glyphicon glyphicon-info-sign'></span> &nbsp; ERROR. ".$tel." has been used already
-								</div>";
-				}
+				
 				
 				
 				elseif ($email_exists->num_rows>0){
@@ -215,14 +210,14 @@
 					
 					$query = $con->query("INSERT INTO users set full_name='$uname',user_name='$your_email',user_email='$your_email',
 					pwd='$hashed_password',user_level='$user_level',banned='$user_level',ctime='$upass',date=now(),users_ip='$ip'
-					,md5_id='$os',year_id='$year',campus_id='$campus',tel='$tel' ,institutional_email='$email'") or die(mysqli_error($con));
+					,md5_id='$os',year_id='$year',campus_id='$campus_id',tel='$tel' ,institutional_email='$email'") or die(mysqli_error($con));
 			
 						$msg = "<div class='alert alert-success'>
 									<span class='glyphicon glyphicon-info-sign'></span> &nbsp; successfully registered !
 								</div>";
 								echo "<script>alert('User Successfully Created')</script>";		
 								
-				 echo '<meta http-equiv="Refresh" content="0; url=login.php?create_users&link=Create%20Users%20Accounts">';
+				 echo '<meta http-equiv="Refresh" content="0; url=index.php?create_users&link=Create%20Users%20Accounts">';
 					
 				}
 				 else {
@@ -587,9 +582,14 @@
 						$sem=$_GET['sem'];
 						$prog_id=$_GET['prog_id'];
 						$course_id=$_POST['course'];
-						 $lecture=$_POST['lecture'];
-						 $tutorials=$_POST['tutorials'];
-						$practicals=$_POST['practicals'];
+						$select =$con->query("SELECT * FROM  courses WHERE id='$course_id' ") or die(mysqli_error($con));	
+						while($rows=$select->fetch_assoc()){
+							$lecture=$rows['lecture'];
+							$tutorials=$rows['tutorials'];
+						   $practicals=$rows['practicals'];
+
+						}
+						
 				 
 						$select =$con->query("SELECT * FROM  prog_courses WHERE  prog_id='$prog_id'
 						AND course_id='$course_id' AND sem_id='$sem' and level_id='$level' ") or die(mysqli_error($con));	
@@ -603,7 +603,7 @@
 					$select =$con->query("INSERT INTO  prog_courses SET  prog_id='$prog_id'
 					,course_id='$course_id',sem_id='$sem',level_id='$level' ,type_id='$seqtype' ,practical='$practicals',
 					lecture='$lecture',tutorials='$tutorials'") or die(mysqli_error($con));				
-						echo "<script>alert('SAVING SUCCESSFUL')</script>";
+					//	echo "<script>alert('SAVING SUCCESSFUL')</script>";
 						echo '<meta http-equiv="Refresh" content="0; url=?saving_subj&sem='.$_GET['sem'].'&sem_type='.$_GET['sem_type'].'&prog_id='.$_GET['prog_id'].'&year_id='.$_GET['year_id'].'&level_id='.$_GET['level_id'].'&camp_id='.$_GET['camp_id'].'&gdgddh">';
 					
 					}
@@ -1048,7 +1048,7 @@
 			  $admin_id;
 	
 			$con= dbcon();
-						if(isset($_POST['save'])){
+						if(isset($_POST['save_record'])){
 							$time=$_POST['time'];
 							$date=$_POST['date'];
 							$course=$_GET['course'];
@@ -1058,7 +1058,7 @@
 					AND teacher_id='$teacher_id' AND year_id='$year_id' AND campus_id='$campus_id' AND arrival='$date'
 					  ") 
 						   or die(mysqli_error($con));
-
+echo $check_exits->num_rows;
 					 if($check_exits->num_rows>0){
 						echo '<meta http-equiv="Refresh" content="0; url=?teacher_att&userid='.$teacher_id.'&course='.$course.'&year='.$year_id.'&camp_id='.$campus_id.'&gdgddh">';
 				
@@ -1068,7 +1068,7 @@
 				$insert_att=$con->query("INSERT INTO teacher_att SET course_id='$course_id',user_id='$admin_id'
 				,teacher_id='$teacher_id', year_id='$year_id', campus_id='$campus_id',arrival='$date_time',computer='$computer_name' ") 
 						or die(mysqli_error($con));
-						echo "<script>alert('SUCCESSFULLY SAVED')</script>";
+						//echo "<script>alert('SUCCESSFULLY SAVED')</script>";
 						echo '<meta http-equiv="Refresh" content="0; url=?teacher_att&userid='.$teacher_id.'&course='.$course.'&year='.$year_id.'&camp_id='.$campus_id.'&gdgddh">';
 
 				

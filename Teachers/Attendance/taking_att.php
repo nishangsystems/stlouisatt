@@ -6,7 +6,7 @@ $starts=$_GET['starts'];
 $ends=$_GET['ends'];
 $campus_id=$_GET['campus_id'];
 
-$check=$con->query("SELECT * FROM  courses,users,programs,levels,prog_courses,teacher_courses 
+$check=$con->query("SELECT * FROM  courses,users,campus,programs,levels,prog_courses,teacher_courses 
 WHERE  teacher_courses.course_id='".$_GET['courseid']."'  AND teacher_courses.campus_id='".$_GET['campus_id']."' 
 AND campus.id=teacher_courses.campus_id
 AND teacher_courses.course_id=prog_courses.id AND teacher_courses.year_id='$year_id' 

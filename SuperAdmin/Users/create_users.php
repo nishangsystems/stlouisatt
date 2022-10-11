@@ -20,7 +20,7 @@
        
 
      
-        <?php CreateUsersAdmin(); ?>
+        <?php CreateUsers(); ?>
           
           
            <div class="form-group">
@@ -126,8 +126,8 @@
               
               <?php 
 			$year=date('Y');
-			  $d=$con->query("SELECT * from campus,ayear,users WHERE users.user_level='2' 
-        AND users.campus_id=campus.id AND ayear.id=users.year_id  ") or die(mysqli_error($con));
+			  $d=$con->query("SELECT * from campus,users WHERE users.user_level='3' 
+        AND users.campus_id=campus.id   ") or die(mysqli_error($con));
 $i=1;
 ?>
  <thead>
@@ -136,7 +136,7 @@ $i=1;
                                              <th>Name</th>
                                   <th>User Name</th>
                                       <th>Campus</th> 
-                                      <th>Academic Year</th>
+                                     
                                       <th>branch</th>
                                 
            
@@ -152,7 +152,7 @@ $i=1;
 
                                   <td><?php  echo $bu['user_name']; ?></td>
                                   <td><?php  echo $bu['camp_name']; ?></td>
-                                  <td><?php  echo $bu['cur_ayear']; ?></td>
+                                
                                   <td>  <a href="?create_users&link=Create Users&delete=<?php echo $bu['id'];  ?>"><button type="submit" class="btn btn-danger btn-xs" name="submit" onclick="return confirm('Are you sure')">Delete</button></a>| 
                                    <a href="?change_pwd&link=Change Password&xxc=<?php echo $bu['id'];  ?>" ><button type="submit" class="btn btn-success btn-xs" name="submit" onclick="return confirm('Are you sure')">Change Password</button></a> 
                                    <a href="?renew_account&link=Change Password&xxc=<?php echo $bu['id'];  ?>" ><button type="submit" class="btn btn-primary btn-xs" name="submit" >Renew Account</button></a></td>

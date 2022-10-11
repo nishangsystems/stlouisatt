@@ -324,6 +324,11 @@
 									if(isset($_GET['view_content'])){
 										include '../SuperAdmin/CourseCoverage/view_content.php';
 									}
+
+									if(isset($_GET['excel_upload'])){
+										include '../SuperAdmin/Students/excel_upload.php';
+									}
+									
 									
 									
 									
