@@ -900,6 +900,7 @@
 						$course=$con->real_escape_string($_POST['topic']);
 						$period=$_POST['period'];						
 						$content=$con->real_escape_string(nl2br(ucfirst($_POST['content'])));
+						$campus_id=$_GET['campus_id'];
 						
 					$insert_att=$con->query("SELECT * FROM  sub_topics_taught WHERE  time_id='$period' and subtopic_id='$course' AND 
 					teacher_id='$user_id' AND year_id='$year_id' ") or die(mysqli_error($con));
@@ -909,7 +910,7 @@
 						time_id='$period' AND subtopic_id='$course' AND 
 						teacher_id='$user_id' AND year_id='$year_id', ") or die(mysqli_error($con));
 						echo "<script>alert('ERROR. RECORDS ALREADY EXISTS')</script>";
-							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&gdgdhdh">';
+							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&campus_id='.$campus_id.'&gdgdhdh">';
 					
 
 					}
@@ -919,7 +920,7 @@
 					$insert_att=$con->query("INSERT INTO sub_topics_taught SET time_id='$period',subtopic_id='$course',
 					teacher_id='$user_id',year_id='$year_id',contents='$content' ") or die(mysqli_error($con));
 							echo "<script>alert('SUCCESSFULLY SAVED')</script>";
-							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&gdgdhdh">';
+							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&campus_id='.$campus_id.'&gdgdhdh">';
 					
 					}
 	
@@ -933,13 +934,14 @@
 						$course=$con->real_escape_string($_POST['topic']);
 						$period=$_POST['period'];						
 						$content=$con->real_escape_string(nl2br(ucfirst($_POST['content'])));
+						$campus_id=$_GET['campus_id'];
 						
 						
 							   
 					$insert_att=$con->query("UPDATE sub_topics_taught SET time_id='$period',subtopic_id='$course',
 					contents='$content' WHERE id='".$_GET['edit']."' ") or die(mysqli_error($con));
 							echo "<script>alert('UPDATE SUCCESSFULLY')</script>";
-							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&gdgdhdh">';
+							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&campus_id='.$campus_id.'&gdgdhdh">';
 					
 	
 					}
@@ -950,12 +952,13 @@
 					if(isset($_GET['del'])){
 						
 						$con= dbcon();
+						$campus_id=$_GET['campus_id'];
 						
 						
 							   
 					$insert_att=$con->query("DELETE FROM sub_topics_taught   WHERE id='".$_GET['del']."' ") or die(mysqli_error($con));
 							echo "<script>alert('Records SUCCESSFULLY Deleted')</script>";
-							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&gdgdhdh">';
+							echo '<meta http-equiv="Refresh" content="0; url=?sign_logbook&id='.$id.'&campus_id='.$campus_id.'&gdgdhdh">';
 					
 	
 					}

@@ -109,6 +109,9 @@
                                     if(isset($_GET['taking_att'])){
 										include '../Teachers/Attendance/taking_att.php';
 									}
+									if(isset($_GET['teachers_bymonth'])){
+										include '../Teachers/Reports/teachers_bymonth.php';
+									}
 
 									if(isset($_GET['sign_logbook'])){
 										include '../SuperAdmin/Courses/sign_logbook.php';

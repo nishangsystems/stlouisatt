@@ -161,6 +161,16 @@
 								<b class="arrow"></b>
 							</li>
 
+							<li class="">
+								<a href="?teachers_bymonth">
+									<i class="menu-icon fa fa-caret-right"></i>
+									By Month
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
 
 								
 								</ul>

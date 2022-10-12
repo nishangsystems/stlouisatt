@@ -4,6 +4,7 @@
  $time_id="";
  $contents="";
  $content="";
+ $campus_id=$_GET['campus_id'];
 SaveTopicTaught($id,$year_id,$user_id);
 SaveTopicTaughtUpdates($id,$year_id,$user_id);
 DeleteSaveTopicTaught($id,$year_id,$user_id);
@@ -27,7 +28,7 @@ $check=$con->query("SELECT * FROM  courses,users,programs,levels,prog_courses,te
      WHERE  teacher_courses.year_id='$year_id' AND teacher_courses.teacher_id='$user_id'
      AND teacher_courses.course_id=prog_courses.id and teacher_courses.course_id='".$_GET['id']."'
      AND prog_courses.level_id=levels.id AND users.id=teacher_courses.teacher_id AND prog_courses.prog_id=programs.id AND 
-     prog_courses.course_id=courses.id  ") 
+     prog_courses.course_id=courses.id  AND teacher_courses.campus_id='$campus_id' ") 
 			or die(mysqli_error($con));
        $check->num_rows;
            
@@ -120,7 +121,7 @@ $check=$con->query("SELECT * FROM  courses,users,programs,levels,prog_courses,te
               <?php
                   $checkm=$con->query(" SELECT * FROM  teacher_att 
                   WHERE    teacher_att.year_id='$year_id' AND teacher_att.teacher_id='$user_id'   
-                  AND teacher_att.course_id='$course_id'           
+                  AND teacher_att.course_id='$course_id'   AND teacher_att.campus_id='$campus_id'        
                   ORDER BY teacher_att.arrival DESC
                   ") 
                   or die(mysqli_error($con));
@@ -191,7 +192,7 @@ $check=$con->query("SELECT * FROM  courses,users,programs,levels,prog_courses,te
     <tbody>
     <?php
  	$check=$con->query("SELECT * FROM  teacher_att,sub_topics,sub_topics_taught where sub_topics_taught.teacher_id='".$user_id."' 
-   AND sub_topics_taught.year_id='".$year_id."' AND sub_topics_taught.time_id=teacher_att.id 
+   AND sub_topics_taught.year_id='".$year_id."' AND teacher_att.campus_id='$campus_id' AND sub_topics_taught.time_id=teacher_att.id 
    AND sub_topics.id=sub_topics_taught.subtopic_id order by sub_topics_taught.id DESC") 
 			or die(mysqli_error($con));
 			$i=1;
@@ -213,11 +214,11 @@ $check=$con->query("SELECT * FROM  courses,users,programs,levels,prog_courses,te
         
           <td>
        
-        <a class="btn btn-primary btn-xs"  href="?sign_logbook&id=<?php echo $_GET['id']; ?>&edit=<?php echo $rows['id']; ?>&gdgdhdh" >
+        <a class="btn btn-primary btn-xs"  href="?sign_logbook&id=<?php echo $_GET['id']; ?>&campus_id=<?php echo $_GET['campus_id']; ?>&edit=<?php echo $rows['id']; ?>&gdgdhdh" >
         Edit</a>
 
         <a class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you wish to Delete this ')" 
-         href="?sign_logbook&id=<?php echo $_GET['id']; ?>&del=<?php echo $rows['id']; ?>&gdgdhdh">
+         href="?sign_logbook&id=<?php echo $_GET['id']; ?>&campus_id=<?php echo $_GET['campus_id']; ?>&del=<?php echo $rows['id']; ?>&gdgdhdh">
         Delete</a>
 
         

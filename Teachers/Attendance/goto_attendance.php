@@ -1,4 +1,4 @@
-H<?php
+<?php
 if(isset($_POST['save'])){
  $course_id=$_POST['course'];
  $date=$_POST['date'];
@@ -8,7 +8,7 @@ if(isset($_POST['save'])){
 
  $check=$con->query("SELECT * FROM  courses,campus,users,programs,levels,prog_courses,teacher_courses 
  WHERE  teacher_courses.course_id='".$course_id."' AND campus.id=teacher_courses.campus_id
- AND teacher_courses.course_id=prog_courses.id 
+ AND teacher_courses.course_id=prog_courses.id AND teacher_courses.campus_id='$campus_id'
  AND prog_courses.level_id=levels.id AND users.id=teacher_courses.teacher_id AND prog_courses.prog_id=programs.id AND 
  prog_courses.course_id=courses.id") 
         or die(mysqli_error($con));
