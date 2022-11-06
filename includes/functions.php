@@ -261,10 +261,11 @@
 				$campus_id=$_POST['campus'];
 				$name=gethostname();
 				$user_level=2;
-				
-				
-			    $query= $con->query("SELECT * FROM  users ") or die(mysqli_error($con));
-				$counting=$query->num_rows+1;
+				$query= $con->query("SELECT * FROM  serial_num ") or die(mysqli_error($con));
+				while($rows=$query->fetch_assoc()){
+					$last_num=$rows['last'];
+				}
+				$counting=$last_num;
 				if($counting<10){
 					$num="00".$counting;
 
@@ -282,7 +283,8 @@
 			    $email_exists= $con->query("SELECT * FROM  users WHERE user_email='$email' ") or die(mysqli_error($con));
 				
 			    $name_exists= $con->query("SELECT * FROM  users WHERE full_name='$uname' ") or die(mysqli_error($con));
-				
+				$matricule_exists= $con->query("SELECT * FROM  users WHERE user_name='$code' ") or die(mysqli_error($con));
+				$yes_exitx=$matricule_exists->num_rows;
 				//get OS
 				$os= php_uname();
 				if($upass!=$upass2){
@@ -305,6 +307,10 @@
 				else if($name_exists->num_rows>0){
 					echo "<script>alert('ERROR. That name already Exists in the System')</script>";
 				}
+				else if($yes_exitx>0){
+					echo "<script>alert('ERROR. Duplication of Code ".$code." ')</script>";
+				}
+				
 				
 				
 				
@@ -320,6 +326,8 @@
 					$query = $con->query("INSERT INTO users set full_name='$uname',user_name='$code',user_email='$email',
 					pwd='$hashed_password',user_level='$user_level',banned='$user_level',ctime='$upass',date=now(),users_ip='$ip'
 					,md5_id='$os',year_id='$year',tel='$tel' ,campus_id='$campus_id' ") or die(mysqli_error($con));
+					
+			        $query= $con->query("UPDATE serial_num SET last=last+1 ") or die(mysqli_error($con));
 			
 						$msg = "<div class='alert alert-success'>
 									<span class='glyphicon glyphicon-info-sign'></span> &nbsp; successfully registered !
