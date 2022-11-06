@@ -277,7 +277,7 @@
 					$num=$counting;
 
 				}
-				$code="GRAUNI".$num;
+				$code="SLUI".$num;
 				
 			    $email_exists= $con->query("SELECT * FROM  users WHERE user_email='$email' ") or die(mysqli_error($con));
 				
