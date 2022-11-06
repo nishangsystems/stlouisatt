@@ -152,8 +152,141 @@
 										include '../SuperAdmin/CourseCoverage/view_content.php';
 									}
 									
+									if(isset($_GET['add_teacher'])){
+										include '../SuperAdmin/Users/add_teacher.php';
+									}
+									if(isset($_GET['all_teachers'])){
+										include '../SuperAdmin/Users/all_teachers.php';
+									}
+
+
+
+									///////////course allocation
+
+									if(isset($_GET['allocate_course'])){
+										include '../SuperAdmin/Courses/index.php';
+									}
+									if(isset($_GET['all_courses'])){
+										include '../SuperAdmin/Courses/all_courses.php';
+									}
+									if(isset($_GET['update_course'])){
+										include '../SuperAdmin/Courses/update_course.php';
+									}
+									if(isset($_GET['assign_course'])){
+										include '../SuperAdmin/Courses/assign_course.php';
+									}
+
+									if(isset($_GET['confirm_it'])){
+										include '../SuperAdmin/Courses/confirm_it.php';
+									}
+
+									if(isset($_GET['assign_to'])){
+										include '../SuperAdmin/Courses/assign_to.php';
+									}
+									if(isset($_GET['all_allocations'])){
+										include '../SuperAdmin/Courses/all_allocations.php';
+									}
+									if(isset($_GET['view_details'])){
+										include '../SuperAdmin/Courses/view_details.php';
+									}
+									if(isset($_GET['topics'])){
+										include '../SuperAdmin/Courses/topics.php';
+									}
+									if(isset($_GET['define_topics'])){
+										include '../SuperAdmin/Courses/define_topics.php';
+									}
+									if(isset($_GET['sub_topics'])){
+										include '../SuperAdmin/Courses/sub_topics.php';
+									}
+									if(isset($_GET['define_subtopics'])){
+										include '../SuperAdmin/Courses/define_subtopics.php';
+									}
+									if(isset($_GET['defining_subtopics'])){
+										include '../SuperAdmin/Courses/defining_subtopics.php';
+									}
+									if(isset($_GET['course_coverage'])){
+										include '../SuperAdmin/Courses/course_coverage.php';
+									}
+									if(isset($_GET['sign_logbook'])){
+										include '../SuperAdmin/Courses/sign_logbook.php';
+									}
+									if(isset($_GET['signing_logbook'])){
+										include '../SuperAdmin/Courses/signing_logbook.php';
+									}
+									if(isset($_GET['sign_mylogbook'])){
+										include '../SuperAdmin/Courses/sign_mylogbook.php';
+									}
+
+									if(isset($_GET['course_type'])){
+										include '../SuperAdmin/Settings/course_type.php';
+									}
+
+									if(isset($_GET['add_course'])){
+										include '../SuperAdmin/Settings/add_course.php';
+									}
+									if(isset($_GET['course_prog'])){
+										include '../SuperAdmin/Settings/course_prog.php';
+									}
+
+									if(isset($_GET['course_per_level'])){
+										include '../SuperAdmin/Settings/course_per_level.php';
+									}
+									if(isset($_GET['confirm_gtype'])){
+										include '../SuperAdmin/Settings/confirm_gtype.php';
+									}
 
 									
+									if(isset($_GET['saving_subj'])){
+										include '../SuperAdmin/Settings/saving_subj.php';
+									}
+									if(isset($_GET['saving_gensubj'])){
+										include '../SuperAdmin/Settings/saving_gensubj.php';
+									}
+									if(isset($_GET['confirm_ptype'])){
+										include '../SuperAdmin/Settings/confirm_ptype.php';
+									}
+									if(isset($_GET['confirm_gtype'])){
+										include '../SuperAdmin/Settings/confirm_gtype.php';
+									}
+
+
+									////Course Coverage
+									if(isset($_GET['coourse_coverage'])){
+										include '../SuperAdmin/CourseCoverage/index.php';
+									}
+									if(isset($_GET['view_coursecov'])){
+										include '../SuperAdmin/CourseCoverage/view_coursecov.php';
+									}
+									if(isset($_GET['view_coverage'])){
+										include '../SuperAdmin/CourseCoverage/view_coverage.php';
+									}
+									if(isset($_GET['this_course'])){
+										include '../SuperAdmin/CourseCoverage/this_course.php';
+									}
+									if(isset($_GET['course_records'])){
+										include '../SuperAdmin/CourseCoverage/course_records.php';
+									}
+									if(isset($_GET['course_reports'])){
+										include '../SuperAdmin/CourseCoverage/course_report.php';
+									}
+									if(isset($_GET['view_logbook'])){
+										include '../SuperAdmin/CourseCoverage/view_logbook.php';
+									}
+									if(isset($_GET['viewing_logbook'])){
+										include '../SuperAdmin/CourseCoverage/viewing_logbook.php';
+									}
+									if(isset($_GET['view_thiscourse'])){
+										include '../SuperAdmin/CourseCoverage/view_thiscourse.php';
+									}
+									if(isset($_GET['course_content'])){
+										include '../SuperAdmin/CourseCoverage/course_content.php';
+									}
+									if(isset($_GET['view_content'])){
+										include '../SuperAdmin/CourseCoverage/view_content.php';
+									}
+
+
+
 									
 								
 								?>

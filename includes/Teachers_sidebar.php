@@ -122,6 +122,233 @@
 
 						</ul>
 					</li>
+
+					
+					<?php
+					
+												
+					$a = $con->query("SELECT  * from users,campus,departments,departmen_heads
+						where users.id='".$user_id."' AND users.id=departmen_heads.user_id
+						and campus.id=departmen_heads.campus_id AND departments.id=departmen_heads.dept_id ") or die(mysqli_error($con));
+								
+					while($rows = $a->fetch_assoc()) {
+					?>
+					<li class="active open">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-desktop"></i>
+							<span class="menu-text">
+								HOD Center
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+
+						
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Lecturers 
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+								<li class="">
+								<a href="?add_teacher&link=Create Teacher Accounts">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Add Lecturer
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?all_teachers&link=All our Lecturers">
+									<i class="menu-icon fa fa-caret-right"></i>
+									All Lecturers
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+								
+								</ul>
+							</li>
+
+						</ul>
+
+
+						<ul class="submenu">
+
+						
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Courses Zone 
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+								<li class="">
+								<a href="?all_courses">
+									<i class="menu-icon fa fa-caret-right"></i>
+									All Courses
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+						<li class="">
+								<a href="?course_type">
+									<i class="menu-icon fa fa-caret-right"></i>
+									 Course Types
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?course_per_level">
+									<i class="menu-icon fa fa-caret-right"></i>
+									 Courses per Level
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="?allocate_course">
+									<i class="menu-icon fa fa-home"></i>
+									Allocate  Course
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+							
+							<li class="">
+								<a href="?all_allocations">
+									<i class="menu-icon fa fa-caret-right"></i>
+									View Allocations
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+							
+
+							<li class="">
+								<a href="?course_prog">
+									<i class="menu-icon fa fa-caret-right"></i>
+									 Program's Courses
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?topics">
+									<i class="menu-icon fa fa-caret-right"></i>
+									 Topics 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="?sub_topics">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Sub Topics 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+
+						
+
+
+
+								
+								</ul>
+							</li>
+
+						</ul>
+					</li>
+
+
+
+
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-book"></i>
+
+							<span class="menu-text">
+							Course Coverage
+
+								
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							
+
+							<li class="">
+								<a href="?coourse_coverage&link=Course Coverage per Semester or Sequence">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Termal Reports
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?course_reports&link=View Logbooks and what was taught">
+									<i class="menu-icon fa fa-caret-right"></i>
+									View Logbooks
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?course_content&link=Course Content Reports">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Course Content
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
+						
+
+							
+						</ul>
+					</li>
+
+
+                    
+
+                    
+					<?php } ?>
                     
                     
                     
@@ -216,6 +443,8 @@
 
 						</ul>
 					</li>
+
+
                     
 
 

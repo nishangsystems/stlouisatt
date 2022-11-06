@@ -110,9 +110,15 @@
 									if(isset($_GET['create_prog'])){
 										include '../SuperAdmin/Settings/create_prog.php';
 									}
-
+									if(isset($_GET['create_dept'])){
+										include '../SuperAdmin/Settings/create_dept.php';
+									}
 									if(isset($_GET['all_campus'])){
 										include '../SuperAdmin/Settings/all_campus.php';
+									}
+
+									if(isset($_GET['all_depts'])){
+										include '../SuperAdmin/Settings/all_depts.php';
 									}
 									
 									if(isset($_GET['camp_prog'])){
@@ -120,6 +126,10 @@
 									}
 									if(isset($_GET['create_camp_prog'])){
 										include '../SuperAdmin/Settings/camp_prog.php';
+									}
+
+									if(isset($_GET['create_dept_prog'])){
+										include '../SuperAdmin/Settings/dept_prog.php';
 									}
 									if(isset($_GET['course_type'])){
 										include '../SuperAdmin/Settings/course_type.php';
@@ -217,6 +227,10 @@
 									}
 									if(isset($_GET['unsuspend_thisacc'])){
 										include '../SuperAdmin/Users/unsuspend_thisacc.php';
+									}
+
+									if(isset($_GET['setashod'])){
+										include '../SuperAdmin/Users/setashod.php';
 									}
 
 

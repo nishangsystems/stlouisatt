@@ -25,6 +25,7 @@
 														</th>
 														<th>Name</th>
 														<th>Matricule</th>
+														<th>Campus</th>
 														<th >Tel Num</th>
                                                         <th >Status</th>
 														<th></th>
@@ -34,7 +35,8 @@
 												<tbody>
                                                  <?php
 												
-                                                $a = $con->query("SELECT  * from users where user_level='2' ORDER by full_name ") or die(mysqli_error($con));
+                                                $a = $con->query("SELECT  * from campus,users 
+												where user_level='2'  AND campus.id=users.campus_id  ORDER by users.full_name  ") or die(mysqli_error($con));
 															
 												while($rows = $a->fetch_assoc()) {
 												?>
@@ -50,6 +52,7 @@
 														<?php echo $rows['full_name']; ?>
 														</td>
 														<td><?php echo $rows['user_name']; ?></td>
+														<td><?php echo $rows['camp_name']; ?></td>
 														<td> <?php echo $rows['tel']; ?></td> 
                                                         <td> <?php if( $rows['approved']==1){
                                                             echo "suspended";
@@ -75,6 +78,9 @@
                                                         <?php } else { ?>
                                                          <a href="?suspend_thisacc&xxc=<?php echo $rows['id']; ?>&link=Suspend Account " class=" btn-warning btn-sm">Suspend Account </a>
                                                         <?php } ?> 
+														<?php if($level==20 || $level==3){ ?>
+														|<a href="?setashod&xxc=<?php echo $rows['id']; ?>&link=Change Password " class=" btn-default btn-sm">Set as HOD </a>
+                                                        <?php } ?>
 															
 														</td>
 													</tr>
@@ -140,7 +146,7 @@
 					bAutoWidth: false,
 					"aoColumns": [
 					  { "bSortable": false },
-					  null, null,null,null, 
+					  null, null,null,null,null, 
 					  { "bSortable": false }
 					],
 					"aaSorting": [],

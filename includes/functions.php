@@ -258,7 +258,7 @@
 				
 				$ip=$_SERVER['REMOTE_ADDR'];	
 				$tel=$_POST['tel'];
-			
+				$campus_id=$_POST['campus'];
 				$name=gethostname();
 				$user_level=2;
 				
@@ -319,7 +319,7 @@
 					
 					$query = $con->query("INSERT INTO users set full_name='$uname',user_name='$code',user_email='$email',
 					pwd='$hashed_password',user_level='$user_level',banned='$user_level',ctime='$upass',date=now(),users_ip='$ip'
-					,md5_id='$os',year_id='$year',tel='$tel'  ") or die(mysqli_error($con));
+					,md5_id='$os',year_id='$year',tel='$tel' ,campus_id='$campus_id' ") or die(mysqli_error($con));
 			
 						$msg = "<div class='alert alert-success'>
 									<span class='glyphicon glyphicon-info-sign'></span> &nbsp; successfully registered !
@@ -377,6 +377,33 @@
 		 echo '<meta http-equiv="Refresh" content="0; url=?all_teachers&link=All%20our%20Lecturers">';
 			}
 		}
+
+
+		function hod($id){
+				
+			$con= dbcon();									 
+			if(isset($_POST['submit'] ) )
+			{ 
+			$campus_id=$_POST['campus'];
+			$dept_id=$_POST['dept'];
+			$query1 = $con->query("SELECT * FROM departmen_heads where user_id='$id'
+			  ") or die(mysqli_error($con));
+			$count=$query1->num_rows;
+			if($count>0){
+				echo "<script>alert('Sorry a Teacher can be HOD for one Department Only')</script>";
+				echo '<meta http-equiv="Refresh" content="0; url=?setashod&xxc='.$id.'&link=Change%20Password">';
+
+			}
+			else {
+	
+			$query = $con->query("INSERT INTO departmen_heads SET user_id='$id'
+			,campus_id='$campus_id' , dept_id='$dept_id'  ") or die(mysqli_error($con));
+	
+						
+		 echo '<meta http-equiv="Refresh" content="0; url=?setashod&xxc='.$id.'&link=Change%20Password">';
+			}
+		}
+	}
 		function UnSuspendTeacher($id){
 				
 			$con= dbcon();									 
@@ -446,6 +473,26 @@
 			}
 	}
 
+	function CreateDept(){
+		
+		$con= dbcon();
+			if(isset($_POST['save'])){
+				$prog=strtoupper($_POST['program']);
+				
+			$select =$con->query("SELECT * FROM  departments WHERE  dept_name='$prog'  ") or die(mysqli_error($con));	
+			echo $counts=$select->num_rows;	
+			if($counts>0){
+				echo "<script>alert('ERROR. Name already Exist in the System')</script>";
+				echo '<meta http-equiv="Refresh" content="0; url=?create_dept&id ">';
+			}
+			else {
+			$query =$con->query("INSERT INTO departments set dept_name='$prog' ") or die(mysqli_error($con));
+			echo '<meta http-equiv="Refresh" content="0; url=?create_dept&id ">';
+		}
+			}
+	}
+
+
 	       function CreatePayOption(){
 		
 		    $con= dbcon();
@@ -505,6 +552,28 @@
 				else {
 				$query =$con->query("INSERT INTO campus_programs  set prog_id='$prog_id',campus_id='$camp_id' ") or die(mysqli_error($con));
 				echo '<meta http-equiv="Refresh" content="0; url=?create_camp_prog&id='.$camp_id.'">';
+				}
+				}
+		}
+
+		function DeptProg(){
+			
+		
+			$con= dbcon();
+				if(isset($_POST['save'])){
+					
+					$prog_id=$_POST['prog_id'];				
+					$dept_id=$_GET['id'];
+					
+				$select =$con->query("SELECT * FROM department_programs WHERE  prog_id='$prog_id' AND dept_id='$dept_id' ") or die(mysqli_error($con));	
+				echo $counts=$select->num_rows;	
+				if($counts>1){
+					echo "<script>alert('ERROR. Program Already Exists under a department')</script>";
+					echo '<meta http-equiv="Refresh" content="0; url=?create_dept_prog&id='.$dept_id.'">';
+				}
+				else {
+				$query =$con->query("INSERT INTO department_programs  set prog_id='$prog_id',dept_id='$dept_id' ") or die(mysqli_error($con));
+				echo '<meta http-equiv="Refresh" content="0; url=?create_dept_prog&id='.$dept_id.'">';
 				}
 				}
 		}

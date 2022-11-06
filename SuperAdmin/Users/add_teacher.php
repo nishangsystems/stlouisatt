@@ -41,6 +41,28 @@
         </div>
         </div>
         
+
+        <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right"  autocomplete="off" for="form-field-1"> Campus: </label>
+
+        <div class="col-sm-9">
+
+        <select required class="form-control" id="sel1" name="campus">
+            
+        <option></option>  
+        <?php
+							
+								$result = $con->query("SELECT * FROM campus") or die(mysqli_error($con));
+				while($bu=$result->fetch_assoc()){
+								?>
+                               
+        <option value="<?php echo $bu['id']; ?>"  ><?php echo $bu['camp_name']; ?> </option>
+    <?php } ?> 
+        
+      </select>
+            
+        </div>
+        </div>
         
         
         

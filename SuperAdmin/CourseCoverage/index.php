@@ -45,14 +45,33 @@
                             </label>
                             <select  name="prog_id" onBlur="doCalc(this.form)" required class="form-control">
                                 <option></option>
+                                
+                                                                <?PHP if($level==2){
+
+                                ?>
+
+
                                 <?php
-                                $select =$con->query("SELECT * FROM   programs ORDER BY prog_name") or die(mysqli_error($con));
-							
+                                $select =$con->query("SELECT * FROM   departments,department_programs,departmen_heads,programs 
+                                WHERE departmen_heads.user_id='".$user_id."' AND departmen_heads.dept_id=departments.id
+                                AND department_programs.dept_id=departments.id AND department_programs.prog_id=programs.id
+                                ORDER BY programs.prog_name") or die(mysqli_error($con));
+
                                 while($rows=$select->fetch_assoc()){
                                     ?>
                                 <option value="<?php echo $rows['id'] ?>"  onBlur="doCalc(this.form)"><?php echo $rows['prog_name'] ?></option>
                                 <?php } ?>
-                                   
+
+
+
+                                <?php }  else {?>
+                                <?php
+                                $select =$con->query("SELECT * FROM   programs ORDER BY prog_name") or die(mysqli_error($con));
+
+                                while($rows=$select->fetch_assoc()){
+                                    ?>
+                                <option value="<?php echo $rows['id'] ?>"  onBlur="doCalc(this.form)"><?php echo $rows['prog_name'] ?></option>
+                                <?php }  }?>
                                 </select>
                         </div>
 

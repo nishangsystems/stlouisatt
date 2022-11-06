@@ -123,8 +123,30 @@
 
 												<tbody>
                                                  <?php
+												if($level==2){
+
+													$a = $con->query("SELECT courses.course_title as course_title,
+                                                programs.prog_name as prog_name, levels.level as level,
+                                                SUM(prog_courses.practical) as practical, 
+                                                SUM(prog_courses.lecture) as lecture ,
+                                                SUM(prog_courses.tutorials) as tutorials,
+                                                SUM(teacher_courses.practicals) as practicals, 
+                                                SUM(teacher_courses.lectures) as lectures ,
+                                                SUM(teacher_courses.tutorial) as tutorial,
+                                                COUNT(teacher_id) as tot_teachers,teacher_courses.id as id,
+												teacher_courses.course_id as courseid FROM  
+												courses,departments,department_programs,departmen_heads,programs,levels,prog_courses,teacher_courses 
+                                                WHERE  teacher_courses.year_id='$year_id' AND 
+												departmen_heads.user_id='".$user_id."' AND departmen_heads.dept_id=departments.id
+                                                AND department_programs.dept_id=departments.id AND department_programs.prog_id=programs.id
+                                                AND teacher_courses.campus_id='$campus_id' AND teacher_courses.course_id=prog_courses.id
+                                                AND prog_courses.level_id=levels.id AND prog_courses.prog_id=programs.id AND 
+                                                prog_courses.course_id=courses.id GROUP BY prog_courses.course_id,prog_courses.level_id") or die(mysqli_error($con));
+
+												}
+												else {
+
 												
-	
 												$a = $con->query("SELECT courses.course_title as course_title,
                                                 programs.prog_name as prog_name, levels.level as level,
                                                 SUM(prog_courses.practical) as practical, 
@@ -139,7 +161,8 @@
                                                 AND teacher_courses.campus_id='$campus_id' AND teacher_courses.course_id=prog_courses.id
                                                 AND prog_courses.level_id=levels.id AND prog_courses.prog_id=programs.id AND 
                                                 prog_courses.course_id=courses.id GROUP BY prog_courses.course_id,prog_courses.level_id") or die(mysqli_error($con));
-														
+												}
+			
 												while($rows = $a->fetch_assoc()) {
 												?>
 													<tr>

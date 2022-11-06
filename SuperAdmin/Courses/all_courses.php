@@ -34,7 +34,8 @@
                                                  <?php
 												
                                                 $a = $con->query("SELECT  * from courses order by course_title") or die(mysqli_error($con));
-															
+												
+
 												while($rows = $a->fetch_assoc()) {
 												?>
 													<tr>

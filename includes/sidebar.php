@@ -74,6 +74,15 @@
 							</li>
 
 							<li class="">
+								<a href="?create_dept">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Create Departments
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
 								<a href="?all_certi">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Current Year
@@ -86,6 +95,16 @@
 								<a href="?all_campus">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Campus Programs
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+
+							<li class="">
+								<a href="?all_depts">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Department Programs
 								</a>
 
 								<b class="arrow"></b>
