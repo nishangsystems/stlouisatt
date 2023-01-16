@@ -234,6 +234,16 @@
 										include '../Campus/Attendance/teacher_att.php';
 									}
 									
+									if(isset($_GET['staffatt_bycamp'])){
+										include '../SuperAdmin/Attendance/staffatt_bycamp.php';
+									}
+									if(isset($_GET['campus_checkin'])){
+										include '../SuperAdmin/Attendance/campus_checkin.php';
+									}
+									if(isset($_GET['teacher_att'])){
+										include '../SuperAdmin/Attendance/teacher_att.php';
+									}
+									
 
 
 									 /***Start Attendance */

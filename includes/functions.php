@@ -1004,6 +1004,50 @@
 					}
 				}
 
+
+				function StaffCheckin($teacher_id,$subcamp_id,$campus_id,$year_id,$admin_id){
+					$computer_name= gethostbyaddr($_SERVER['REMOTE_ADDR']);
+				
+					$con= dbcon();
+								if(isset($_POST['matric'])){
+								   $date_time=date('Y-m-d G:i:s');
+								   $date=date('Y-m-d');
+								  
+						$check_exits=$con->query("SELECT * FROM  staff_att WHERE 
+						 teacher_id='$teacher_id' AND year_id='$year_id' AND campus_id='$campus_id' AND date='$date'
+						") 
+							or die(mysqli_error($con));
+						 $check_exits->num_rows;
+						
+						if($check_exits->num_rows>0){
+							$insert_att=$con->query("UPDATE staff_att SET departure='$date_time', checked_out='$computer_name' WHERE 
+						 teacher_id='$teacher_id' AND date='$date' ") 
+						or die(mysqli_error($con));
+						echo '<meta http-equiv="Refresh" content="0; url=?campus_checkin&camp_id='.$_GET['camp_id'].'&sub_camp='.$_GET['sub_camp'].'&gdgddh">';
+	
+						}
+						else {
+							
+						$insert_att=$con->query("INSERT INTO staff_att SET subcamp_id='$subcamp_id',user_id='$admin_id'
+						,teacher_id='$teacher_id', year_id='$year_id', campus_id='$campus_id',date='$date',computer='$computer_name' ") 
+						or die(mysqli_error($con));
+						//echo "<script>alert('SUCCESSFULLY SAVED')</script>";
+						echo '<meta http-equiv="Refresh" content="0; url=?campus_checkin&camp_id='.$_GET['camp_id'].'&sub_camp='.$_GET['sub_camp'].'&gdgddh">';
+	
+	
+				
+								}
+						
+							
+							}
+						}
+
+						
+			
+
+
+
+
 				function SaveTopicTaughtUpdates($id,$year_id,$user_id){
 					if(isset($_POST['save_updates'])){
 						
@@ -1197,7 +1241,10 @@ echo $check_exits->num_rows;
 			}
 
 
+		
+			
 
+	
 
 			
 

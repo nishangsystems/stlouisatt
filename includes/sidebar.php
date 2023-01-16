@@ -245,7 +245,44 @@
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 
-									Record Attendance
+									Staff Attendance
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+									<?php
+										
+										$select =$con->query("SELECT * FROM   campus  ") or die(mysqli_error($con));
+
+										while($rows=$select->fetch_assoc()){
+										  
+										?>
+								<li class="">
+								<a href="?staffatt_bycamp&id=<?php echo $camp_name=$rows['id']; ?>&ggsgsg ">
+									<i class="menu-icon fa fa-caret-right"></i>
+									<?php echo $camp_name=$rows['camp_name']; ?>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<?PHP  } ?>
+						</ul>
+						
+							</li>								
+							</li>
+						</ul>
+
+
+
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Course Attendance
 									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
@@ -268,16 +305,9 @@
 								<b class="arrow"></b>
 							</li>
 							<?PHP  } ?>
-
-
-								
-								</ul>
-							</li>
-
-
-
-
-								
+						</ul>
+						
+							</li>								
 							</li>
 						</ul>
 					</li>
