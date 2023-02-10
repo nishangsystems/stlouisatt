@@ -115,13 +115,14 @@ $sub_camp_id=base64_decode($_GET['sub_camp']);
     </thead>
     <tbody>
     <?php
+    $dates=date('Y-m-d');
  
  	$check=$con->query("SELECT * FROM  users,campus,campus_sub,staff_att WHERE users.id=staff_att.teacher_id 
    
-  AND staff_att.campus_id='$camp_id'  AND campus.id=campus_sub.campus_id
-  AND campus.id=staff_att.campus_id and campus_sub.id=staff_att.campus_id order by staff_att.id DESC  ") 
+  AND staff_att.campus_id='$camp_id'  AND campus.id=campus_sub.campus_id and DATE_FORMAT(staff_att.date, '%Y-%m-%d')='".$dates ."'
+  AND campus.id=staff_att.campus_id AND campus_sub.id=staff_att.subcamp_id order by staff_att.id DESC  ") 
 			or die(mysqli_error($con));
-     $count=$check->num_rows;
+     $count=$check->num_rows; 
 			$i=1;
 			while($rows=$check->fetch_assoc()){
 	?>

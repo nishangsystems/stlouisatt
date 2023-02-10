@@ -66,6 +66,7 @@
 	  return $conn;
 	  }
 	date_default_timezone_set('Africa/Douala');
+	//	date_default_timezone_set('Africa/Douala');
 	$query = $con->query("SELECT * FROM ayear WHERE status='1'  " ) or die(mysqli_error($con));
 
     while ($userRow = $query->fetch_array()) {
@@ -1009,8 +1010,9 @@
 					$computer_name= gethostbyaddr($_SERVER['REMOTE_ADDR']);
 				
 					$con= dbcon();
+				 
 								if(isset($_POST['matric'])){
-								   $date_time=date('Y-m-d G:i:s');
+								   $date_time=date_create('now')->format('Y-m-d H:i:s');
 								   $date=date('Y-m-d');
 								  
 						$check_exits=$con->query("SELECT * FROM  staff_att WHERE 
@@ -1028,7 +1030,7 @@
 						}
 						else {
 							
-						$insert_att=$con->query("INSERT INTO staff_att SET subcamp_id='$subcamp_id',user_id='$admin_id'
+						$insert_att=$con->query("INSERT INTO staff_att SET subcamp_id='$subcamp_id',user_id='$admin_id',arrival='$date_time'
 						,teacher_id='$teacher_id', year_id='$year_id', campus_id='$campus_id',date='$date',computer='$computer_name' ") 
 						or die(mysqli_error($con));
 						//echo "<script>alert('SUCCESSFULLY SAVED')</script>";
