@@ -2085,6 +2085,23 @@ echo $check_exits->num_rows;
 
     return $string;
 }
+
+
+
+
+function countMyDays($year, $month, $ignore) {
+	$count = 0;
+	$counter = mktime(0, 0, 0, $month, 1, $year);
+	while (date("n", $counter) == $month) {
+		if (in_array(date("w", $counter), $ignore) == false) {
+			$count++;
+		}
+		$counter = strtotime("+1 day", $counter);
+	}
+	return $count;  }
+	
+	// echo countMyDays($year, $month, array(0, 6)); // 23
+
 	
 
 	

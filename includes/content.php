@@ -309,6 +309,13 @@
 									if(isset($_GET['view_myhours'])){
 										include '../SuperAdmin/Reports/view_myhours.php';
 									}
+
+									if(isset($_GET['fulltime_bymonth'])){
+										include '../SuperAdmin/Reports/fulltime_bymonth.php';
+									}
+									if(isset($_GET['fulltime_byhour'])){
+										include '../SuperAdmin/Reports/fulltime_byhours.php';
+									}
 									
 
 									////Course Coverage
