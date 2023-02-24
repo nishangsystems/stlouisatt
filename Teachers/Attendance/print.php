@@ -81,16 +81,17 @@
         <td><?php echo $i++; ?></td>
         <td><?php echo $matric=$rows['matricule']; ?>
       </td>
-        <td><?php 
-        $check=$dbcon->query("SELECT * FROM  student_infos WHERE matricule='$matric' order by id DESC LIMIT 1  ") 
+      <td><?php 
+        $check=$dbcon->query("SELECT * FROM  students WHERE matric='$matric' order by id DESC LIMIT 1  ") 
         or die(mysqli_error($dbcon));
               
                while($row=$check->fetch_assoc()){
-                   echo $name=$row['firstname'];
+                   echo $name=$row['name'];
                }        
         
         
         ; ?></td>
+       
        
 
          
