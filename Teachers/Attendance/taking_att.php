@@ -84,7 +84,16 @@ Taking Attendance for  <?php echo $rows['course_title'];  ?>  in  <?php echo $ro
         <td><?php echo $i++; ?></td>
         <td><?php echo $matric=$rows['matricule']; ?>
       </td>
-      <td><?php echo $matric=$rows['name']; ?></td>
+        <td><?php 
+        $check=$dbcon->query("SELECT * FROM  students WHERE matric='$matric' order by id DESC LIMIT 1  ") 
+        or die(mysqli_error($dbcon));
+              
+               while($row=$check->fetch_assoc()){
+                   echo $name=$row['name'];
+               }        
+        
+        
+        ; ?></td>
        
 
          
