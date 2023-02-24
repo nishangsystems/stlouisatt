@@ -134,7 +134,7 @@ Assigning Course(s) to <?php echo $full_name;  ?>  in  <?php echo $camp_name;  ?
                     while($row=$checkm->fetch_assoc()){
                         ?>
                 
-                  <option value="<?php echo $row['id']; ?>"><?php echo $row['id']; ?>  /
+                  <option value="<?php echo $row['id']; ?>"><?php echo $row['course_title']; ?>  /
                   <?php echo $row['course_code']; ?>/
                   <?php echo $row['prog_name']; ?> / <?php echo $row['level_name']; ?> </option>
                     <?php } ?>

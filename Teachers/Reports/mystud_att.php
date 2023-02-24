@@ -82,7 +82,7 @@
         <td><?php echo $matric=$rows['matricule']; ?>
       </td>
       <td><?php 
-        $check=$dbcon->query("SELECT * FROM  students WHERE matric='$matric' order by id DESC LIMIT 1  ") 
+        $check=$dbcon->query("SELECT * FROM  students WHERE matric like '%$matric%' order by id DESC LIMIT 1  ") 
         or die(mysqli_error($dbcon));
               
                while($row=$check->fetch_assoc()){
