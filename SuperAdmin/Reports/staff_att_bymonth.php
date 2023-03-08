@@ -116,7 +116,7 @@
                    echo "<span style='color:#00F;font-weight:bold'>✓</span>";
                }
                else {
-                   echo "<span style='color:#f00;font-weight:bold'>❌</span>";
+                   echo "<span style='color:#f00;font-weight:bold'>&#10060;</span>";
                }
        
        ?></td>

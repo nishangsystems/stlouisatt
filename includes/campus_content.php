@@ -344,6 +344,15 @@
 									
 									
 									
+									if(isset($_GET['fulltime_bymonth'])){
+										include '../Campus/Reports/fulltime_bymonth.php';
+									}
+									if(isset($_GET['fulltime_byhour'])){
+										include '../Campus/Reports/fulltime_byhours.php';
+									}
+									if(isset($_GET['fulltime_late'])){
+										include '../Campus/Reports/fulltime_late.php';
+									}
 									
 									
 									

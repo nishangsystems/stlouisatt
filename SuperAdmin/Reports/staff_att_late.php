@@ -35,7 +35,7 @@
 
 
 
-    
+   
           
     $check_exits=$con->query("SELECT * FROM  campus where id='$campus_id' ") 
         or die(mysqli_error($con));
@@ -73,7 +73,7 @@
 
 
 
-<h3>Hourly Attendance Sheet for : <?php echo $campus; ?> for <?php echo $month_name; ?>   <?php echo $year; ?>
+<h3>Late Comers Reports Sheet for : <?php echo $campus; ?> for <?php echo $month_name; ?>   <?php echo $year; ?>
     
 </h3>
 
@@ -130,35 +130,44 @@
          else {                                                
         $today=date('Y-m-d', strtotime($day)); ?>
        
-       <td style="font-weight:bold"><?php  
-      
+       <td style="font-weight:bold;  color:#00f"><?php  
 
+       /////Get the arrival time 
 
-        $check_att=$con->query("SELECT  * FROM staff_att WHERE date='".$today."'  AND teacher_id='".$rows['teacher_id']."' ") 
-               or die(mysqli_error($con));
-               $counted=$check_att->num_rows;
-               if($counted>0){
-                  
-                
-                $check_all=$con->query("SELECT SUM(TIMESTAMPDIFF(HOUR,  arrival,departure)) AS tim
+       $check_all=$con->query("SELECT arrival AS tim
                 FROM staff_att WHERE  staff_att.teacher_id='".$rows['teacher_id']."' 
                AND date='$today'  ")  or die(mysqli_error($con));
+               $count=$check_all->num_rows;
                       while($ro=$check_all->fetch_assoc()){
-                     echo   $hours=   $ro['tim'];
-                      } 
-                      if(empty($row['departure']))  {
-
-                       "<span style='color:#00f;font-size:12px;font-weight:bold'>Didn't <br> clockout</span>";
-                      } 
-                      else {
-                      echo   $hours; 
-                      }    
-        
+                       $staff_arrival=  $ro['tim'];
+                       $staff_arrival_oncampus= date("H:i:s", strtotime($staff_arrival));
+                      }
+                     
                       
-               }
-               else {
-                   echo "<span style='color:#f00;font-weight:bold'>0</span>";
-               }
+        if($count<1){
+            echo "<span style='color:#f00;font-weight:bold'>&#10060;</span>";
+        }
+        else {
+                
+            $time1 = new DateTime($checkin);
+            $time2 = new DateTime($staff_arrival_oncampus);
+            $time_diff = $time1->diff($time2);
+          $hours= $time_diff->h.' hours';
+         $minutes=  $time_diff->i.' min';
+         if($hours>0){
+            echo $hours. " late ";
+         }
+         else if($minutes >0){
+            echo $minutes . " Late";
+
+         }
+         else {
+            "On time";
+         }
+            
+        }
+            
+         
        
        ?></td>
       

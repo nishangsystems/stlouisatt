@@ -28,17 +28,22 @@
    
     <?php  
     
-   $month=$_POST['month'];
+ echo  $month=$_POST['month'];
     $year=$_POST['year'];
     $campus_id=$_POST['campus'];
     
-     
           
     $check_exits=$con->query("SELECT * FROM  campus where id='$campus_id' ") 
         or die(mysqli_error($con));
        while($rows=$check_exits->fetch_assoc()){
         $campus=$rows['camp_name'];
        }
+       $check_exits=$con->query("SELECT * FROM months where num='$month' ") 
+        or die(mysqli_error($con));
+       while($rows=$check_exits->fetch_assoc()){
+        $month_name=$rows['month'];
+       }
+   
    
 
        $check_exits=$con->query("SELECT * FROM  users,staff_att  where staff_att.campus_id='$campus_id'
@@ -51,7 +56,7 @@
 
 
 
-<h3>Attendance Sheet for : <?php echo $campus; ?> for <?php echo $month; ?> / <?php echo $year; ?>
+<h3>Attendance Sheet for : <?php echo $campus; ?> for <?php echo $month_name; ?>   <?php echo $year; ?>
     
 </h3>
 
@@ -62,18 +67,16 @@
         <th>Name</th>
        <?php
        
-       $no_of_days = date("t",strtotime($year.'-'.$month));
-    
-       $dates = array();
-       
-       for($d=1;$d<=$no_of_days;$d++)
-       {
-           $day = (strlen($d)==1) ? '0'.$d : $d; // To add leading zero to the date
-           $month = (strlen($month)==1) ? '0'.$month : $month; // To add leading zero to the month
+       $check=$con->query("SELECT * FROM  users,staff_att  where staff_att.campus_id='$campus_id'
+       AND users.id=staff_att.teacher_id  AND DATE_FORMAT(staff_att.arrival, '%m')='$month' AND 
+       DATE_FORMAT(staff_att.arrival, '%Y')='$year' GROUP BY staff_att.date  ORDER BY staff_att.date ") 
+       or die(mysqli_error($con));
+       while($row=$check->fetch_assoc()){
         ?>
-        <th><?php  $dates = $year.'-'.$month.'-'.$day;
-                                                         
-        echo date('d-m-Y', strtotime($dates));;  ?></th>
+        <th><?php  
+         $dates=$row['arrival'] ;                                              
+        echo date('d', strtotime($dates));;  ?><br>
+       <?php  echo date('D', strtotime($dates));;  ?></th>
         <?php } ?>
         
         
@@ -90,19 +93,22 @@
         <td><?php echo $matric=$rows['full_name']; ?>
       </td>
        
-       <?php
-       /////date loading  
-       $no_of_days = date("t",strtotime($year.'-'.$month));    
-       $dates = array();       
-       for($d=1;$d<=$no_of_days;$d++)
-       {
-           $day = (strlen($d)==1) ? '0'.$d : $d; // To add leading zero to the date
-           $month = (strlen($month)==1) ? '0'.$month : $month; // To add leading zero to the month
-       ?>
+
+      <?php
+       
+       $check=$con->query("SELECT * FROM  users,staff_att  where staff_att.campus_id='$campus_id'
+       AND users.id=staff_att.teacher_id  AND DATE_FORMAT(staff_att.arrival, '%m')='$month' AND 
+       DATE_FORMAT(staff_att.arrival, '%Y')='$year' GROUP BY staff_att.date  ORDER BY staff_att.date ") 
+       or die(mysqli_error($con));
+       while($row=$check->fetch_assoc()){
+       
+         $dates=$row['arrival'] ;                                              
+        $today=date('Y-m-d', strtotime($dates));;  ?>
+       
        <td><?php  
-       /////compute date from function 
-       $dates = $year.'-'.$month.'-'.$day;                                                         
-       $today= date('d-m-Y', strtotime($dates));;
+      
+   
+
         $check_att=$con->query("SELECT  * FROM staff_att WHERE date='".$today."'  AND teacher_id='".$rows['teacher_id']."' ") 
                or die(mysqli_error($con));
                $counted=$check_att->num_rows;
@@ -114,9 +120,9 @@
                }
        
        ?></td>
-       <?php } ?>
+       <?php } } ?>
       </tr>
-      <?php }  ?>
+     
       
     </tbody>
   </table>

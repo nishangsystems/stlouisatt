@@ -448,6 +448,15 @@
 								<b class="arrow"></b>
 							</li>
 
+							<li class="">
+								<a href="?fulltime_late">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Late Coming 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
 							
 
 

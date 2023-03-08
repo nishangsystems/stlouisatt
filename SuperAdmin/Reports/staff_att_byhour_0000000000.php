@@ -1,5 +1,5 @@
-<!-- page specific plugin styles -->
-<?php include '../../includes/functions.php'; ?>
+   <!-- page specific plugin styles -->
+   <?php include '../../includes/functions.php'; ?>
     <!-- text fonts -->
     <link rel="stylesheet" href="../../assets/css/fonts.googleapis.com.css"/>
 
@@ -33,8 +33,20 @@
     $campus_id=$_POST['campus'];
 
 
-
-
+    
+    
+/*
+  
+  $days = cal_days_in_month(CAL_GREGORIAN, $month,$year);
+  for($i = 1; $i<= $days; $i++){
+     $day  = date('Y-m-'.$i);
+     $result = date("l", strtotime($day));
+     if($result != "Sunday" || $result!= "Saturday"){
+    
+  echo  date("Y-m-d", strtotime($day)). " ".$result."<br>";
+     }
+  }
+  */
     
           
     $check_exits=$con->query("SELECT * FROM  campus where id='$campus_id' ") 
@@ -73,7 +85,7 @@
 
 
 
-<h3>Hourly Attendance Sheet for : <?php echo $campus; ?> for <?php echo $month_name; ?>   <?php echo $year; ?>
+<h3>Attendance Sheet for : <?php echo $campus; ?> for <?php echo $month_name; ?>   <?php echo $year; ?>
     
 </h3>
 
@@ -118,21 +130,20 @@
        
 
       <?php
-     
+       
        
       $days = cal_days_in_month(CAL_GREGORIAN, $month,$year);
       for($i = 1; $i<= $days; $i++){
-         $period= $year."-".$month ."-";
-         $day  = date($period.$i);
+         $day  = date('Y-m-'.$i);
          $result = date("l", strtotime($day));
          if($result=="Sunday" || $result=="Saturday"){
          }
-         else {                                                
-        $today=date('Y-m-d', strtotime($day)); ?>
+         else { ;                                              
+      echo  $dates=date('Y-m-d', strtotime($day));;  ?>
        
        <td style="font-weight:bold"><?php  
       
-
+   
 
         $check_att=$con->query("SELECT  * FROM staff_att WHERE date='".$today."'  AND teacher_id='".$rows['teacher_id']."' ") 
                or die(mysqli_error($con));
@@ -162,14 +173,17 @@
        
        ?></td>
       
-       <?php 
-       }
+       <?php }
        /////Close else for days loading 
               }
        ?>
        <td style="font-weight:bold"><?php
 
 
+echo $check_all=("SELECT SUM(TIMESTAMPDIFF(HOUR,  arrival,departure)) AS tim
+FROM staff_att WHERE departure!='' AND staff_att.teacher_id='".$rows['teacher_id']."' 
+AND  DATE_FORMAT(staff_att.arrival, '%m')='$month' and
+DATE_FORMAT(staff_att.arrival, '%Y')='$year'    ");
 
        $check_all=$con->query("SELECT SUM(TIMESTAMPDIFF(HOUR,  arrival,departure)) AS tim
        FROM staff_att WHERE departure!='' AND staff_att.teacher_id='".$rows['teacher_id']."' 
@@ -191,3 +205,4 @@
       
     </tbody>
   </table>
+  

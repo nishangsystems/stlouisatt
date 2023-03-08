@@ -316,6 +316,10 @@
 									if(isset($_GET['fulltime_byhour'])){
 										include '../SuperAdmin/Reports/fulltime_byhours.php';
 									}
+
+									if(isset($_GET['fulltime_late'])){
+										include '../SuperAdmin/Reports/fulltime_late.php';
+									}
 									
 
 									////Course Coverage

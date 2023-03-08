@@ -348,7 +348,63 @@
 								</ul>
 							</li>
 
+
+							
+
 						</ul>
+
+
+						<ul class="submenu">
+							<li class="">
+								<a href="#" class="dropdown-toggle">
+									<i class="menu-icon fa fa-caret-right"></i>
+
+									Full Time Reports
+									<b class="arrow fa fa-angle-down"></b>
+								</a>
+
+								<b class="arrow"></b>
+
+								<ul class="submenu">
+								<li class="">
+								<a href="?fulltime_bymonth">
+									<i class="menu-icon fa fa-caret-right"></i>
+									By Month
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?fulltime_byhour">
+									<i class="menu-icon fa fa-caret-right"></i>
+									By Hour
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="?fulltime_late">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Late Coming 
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							
+
+
+							
+
+
+								
+								</ul>
+							</li>
+
+						</ul>
+
 
 
 						<ul class="submenu">
