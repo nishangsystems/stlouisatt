@@ -22,7 +22,7 @@ while($rows=$select->fetch_assoc()){
     
 }
 
-$select =$con->query("SELECT * FROM   settings_subtype where id='".$seqtype."' ") or die(mysqli_error($con));
+$select =$con->query("SELECT * FROM   settings_subtype where id='".$sem."' ") or die(mysqli_error($con));
 
 while($rows=$select->fetch_assoc()){
  $sem_name=$rows['sub_name'];   
